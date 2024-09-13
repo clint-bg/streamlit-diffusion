@@ -28,13 +28,13 @@ for i in range(nwalks):
 
 
 #plot one of the simulation runs (the last one)
-#plt.plot(x_loc,z_loc)
-#plt.plot(x_loc[0],z_loc[0],'go')
-#plt.plot(x_loc[-1],z_loc[-1],'ro')
-#plt.xlabel('x position'); plt.ylabel('z position')
-#plt.title('3-D Random Walk plotted in 2D')
-#plt.legend(['Random Walk','Start','End'])
-#plt.show()
+plt.plot(x_loc,z_loc)
+plt.plot(x_loc[0],z_loc[0],'go')
+plt.plot(x_loc[-1],z_loc[-1],'ro')
+plt.xlabel('x position'); plt.ylabel('z position')
+plt.title('3-D Random Walk plotted in 2D')
+plt.legend(['Random Walk','Start','End'])
+plt.show()
 
 dicta = {'Number of steps''Average squared distance': np.mean(sqdists,axis=0)}
 df = pd.DataFrame(dicta)
