@@ -33,7 +33,7 @@ ax.plot(x_loc,z_loc)
 ax.plot(x_loc[0],z_loc[0],'go')
 ax.plot(x_loc[-1],z_loc[-1],'ro')
 ax.set_xlabel('x position'); ax.set_ylabel('z position')
-ax.title('3-D Random Walk plotted in 2D')
+ax.set_title('3-D Random Walk plotted in 2D')
 ax.legend(['Random Walk','Start','End'])
 st.pyplot(fig)
 
