@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.title('Example Diffusion Simulator')
 st.markdown('This is a simple example of a diffusion simulator. The user can \
-select the number of steps in the simulation using the slider below.')
+select the number of random walks in the simulation using the slider below.')
 
 val = st.slider('Select a value for the number of random walks', 20, 200, 100)
 
@@ -32,6 +32,8 @@ for i in range(nwalks):
 
 #plot one of the simulation runs (the last one)
 fig, ax = plt.subplots()
+#format the text to a smaller size
+ax.rc('font', size=8)
 ax.plot(x_loc,z_loc)
 ax.plot(x_loc[0],z_loc[0],'go')
 ax.plot(x_loc[-1],z_loc[-1],'ro')
