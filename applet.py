@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.title('Example Diffusion Simulator')
+st.write('This is a simple example of a diffusion simulator. The user can \
+select the number of steps in the simulation using the slider below.')
 
 val = st.slider('Select a value', 20, 200, 100)
 
