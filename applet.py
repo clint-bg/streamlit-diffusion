@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.title('Example Diffusion Simulator')
-st.write('This is a simple example of a diffusion simulator. The user can \
+st.markdown('This is a simple example of a diffusion simulator. The user can \
 select the number of steps in the simulation using the slider below.')
 
-val = st.slider('Select a value', 20, 200, 100)
+val = st.slider('Select a value for the number of random walks', 20, 200, 100)
 
 # Create the simulation with the provided slider value
 nsteps = 100; nwalks = val
@@ -62,6 +62,6 @@ ax.legend()
 ax.set_title('Average Squared Distance from Origin')
 st.pyplot(fig)
  
-st.write('The code above is a simple example of a diffusion simulator. The user can select the number of steps \
+st.write('The code above is a simple example of a diffusion simulator. The user can select the number of random walks \
  in the simulation using the slider. The code generates a 3D random walk for the selected number of steps and plots \
     the walk in 2D.')
