@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.linear_model import LinearRegression
 
 st.title('Example Diffusion Simulator')
 st.write('This is a simple example of a diffusion simulator. The user can \
@@ -47,11 +46,12 @@ avg_sqdist = np.mean(sqdists, axis=0)
 df = pd.DataFrame({'Number of steps': range(1,nsteps+1),
                    'Average squared distance': avg_sqdist})
 
-#fit linear model to the average squared distance
-model = LinearRegression()
-model.fit(df[['Number of steps']], df['Average squared distance'])
-df['Trend'] = model.predict(df[['Number of steps']])
-
+#fit linear model to the average squared distance using numpy with an intercept of 0
+x = np.array([i for i in range(1,nsteps+1)])
+y = avg_sqdist
+x = x[:,np.newaxis] #change to column index
+a, _, _, _ = np.linalg.lstsq(x, y,rcond=-1) #fit linear model with zero intercept and machine precision tolerance
+df['Trend'] = a*x
 
 #plot the average squared distance from the origin
 fig, ax = plt.subplots()
