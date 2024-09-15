@@ -33,7 +33,7 @@ for i in range(nwalks):
 #format the text to a smaller size
 plt.rc('font', size=8)
 #plot one of the simulation runs (the last one)
-fig, ax = plt.subplots(1,2)
+fig, ax = plt.subplots(1,2,figsize=(10,5))
 ax[0].plot(x_loc,y_loc)
 ax[0].plot(x_loc[0],y_loc[0],'go')
 ax[0].plot(x_loc[-1],y_loc[-1],'ro')
