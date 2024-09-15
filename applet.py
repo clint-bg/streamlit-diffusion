@@ -30,16 +30,20 @@ for i in range(nwalks):
         x_loc.append(x); y_loc.append(y); z_loc.append(z)
 
 
-#plot one of the simulation runs (the last one)
-fig, ax = plt.subplots()
 #format the text to a smaller size
 plt.rc('font', size=8)
-ax.plot(x_loc,z_loc)
-ax.plot(x_loc[0],z_loc[0],'go')
-ax.plot(x_loc[-1],z_loc[-1],'ro')
-ax.set_xlabel('x position'); ax.set_ylabel('z position')
-ax.set_title('3-D Random Walk plotted in 2D')
-ax.legend(['Random Walk','Start','End'])
+#plot one of the simulation runs (the last one)
+fig, ax = plt.subplots(1,2)
+ax[0].plot(x_loc,y_loc)
+ax[0].plot(x_loc[0],y_loc[0],'go')
+ax[0].plot(x_loc[-1],y_loc[-1],'ro')
+ax[0].set_xlabel('x position'); ax[0].set_ylabel('y position')
+ax[0].legend(['Random Walk','Start','End'])
+ax[1].plot(x_loc,z_loc)
+ax[1].plot(x_loc[0],z_loc[0],'go')
+ax[1].plot(x_loc[-1],z_loc[-1],'ro')
+ax[1].set_xlabel('x position'); ax[1].set_ylabel('z position')
+ax[1].legend(['Random Walk','Start','End'])
 st.pyplot(fig)
 
 
