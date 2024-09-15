@@ -70,7 +70,7 @@ ax.set_title('Average Squared Distance from Origin')
 st.pyplot(fig)
 
 st.write('The diffusion coefficient can be estimated from the slope of the line given a step size scaled to \
-    the mean free path in that system. The slope of the line is',a,'.')
+    the mean free path in that system. The slope of the line is:',a))
  
 st.write('The code above is a simple example of a diffusion simulator. The user can select the number of random walks \
  in the simulation using the slider. The code generates a 3D random walk for the selected number of steps and plots \
