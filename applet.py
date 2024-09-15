@@ -50,6 +50,6 @@ dicta = {'Number of steps':num_steps,'Average squared distance': avesqdists}
 df = pd.DataFrame(dicta)
 
 #plot the average squared distance from the origin, averaged over all walks
-fix, ax = plt.subplots()
+fig, ax = plt.subplots()
 sns.lineplot(data=df, x='Number of steps', y='Average squared distance', ax=ax)
-
+st.pyplot(fig)
