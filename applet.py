@@ -53,6 +53,6 @@ ax.set_xlabel('Number of steps'); ax.set_ylabel('Average squared distance')
 ax.set_title('Average Squared Distance from Origin')
 st.pyplot(fig)
  
- st.write('The code above is a simple example of a diffusion simulator. The user can select the number of steps \
+st.write('The code above is a simple example of a diffusion simulator. The user can select the number of steps \
  in the simulation using the slider. The code generates a 3D random walk for the selected number of steps and plots \
     the walk in 2D.')
