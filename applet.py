@@ -6,7 +6,8 @@ import seaborn as sns
 
 st.title('Example Diffusion Simulator')
 st.markdown('This is a simple example of a diffusion simulator. The user can \
-select the number of random walks in the simulation using the slider below.')
+select the number of random walks in the simulation using the slider below. The total number of \
+    steps in each walk is fixed at 100.')
 
 val = st.slider('Select a value for the number of random walks', 20, 200, 100)
 
@@ -67,6 +68,9 @@ ax.set_xlabel('Number of steps'); ax.set_ylabel('Average squared distance')
 ax.legend()
 ax.set_title('Average Squared Distance from Origin')
 st.pyplot(fig)
+
+st.write(f'The diffusion coefficient can be estimated from the slope of the line given a step size scaled to \
+    the mean free path in that system. The slope of the line is {a:.2f}.')
  
 st.write('The code above is a simple example of a diffusion simulator. The user can select the number of random walks \
  in the simulation using the slider. The code generates a 3D random walk for the selected number of steps and plots \
