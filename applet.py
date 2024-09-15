@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.title('Example Diffusion Simulator')
 st.write('This is a simple example of a diffusion simulator. The user can \
@@ -30,7 +31,7 @@ for i in range(nwalks):
 
 
 #plot one of the simulation runs (the last one)
-fig, ax = plt.subplots(1,2,figsize=(5,3))
+fig, ax = plt.subplots(2)
 ax[0].plot(x_loc,z_loc)
 ax[0].plot(x_loc[0],z_loc[0],'go')
 ax[0].plot(x_loc[-1],z_loc[-1],'ro')
@@ -44,9 +45,11 @@ ax[1].legend()
 ax[1].set_xlabel("Number of steps"); ax[1].set_ylabel("Average squared distance from origin")
 st.pyplot(fig)
 
-dicta = {'Number of steps''Average squared distance': np.mean(sqdists,axis=0)}
+num_steps = np.linspace(0,len(avesqdists),len(avesqdists))
+dicta = {'Number of steps':num_steps,'Average squared distance': avesqdists}
 df = pd.DataFrame(dicta)
 
 #plot the average squared distance from the origin, averaged over all walks
-st.line_chart(df)
+fix, ax = plt.subplots()
+sns.lineplot(data=df, x='Number of steps', y='Average squared distance', ax=ax)
 
