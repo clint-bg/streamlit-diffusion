@@ -73,27 +73,27 @@ st.write('The code above is a simple example of a diffusion simulator. The user 
     the walk in 2D.')
 
 st.markdown('### Code')
-st.write('Click the checkbox to show the code used for the random walk.')
-showcode = st.checkbox('Show code')
+st.write('Code used for the random walk. You can see that the direction is first picked from a random uniform distribution \
+    and then the step is taken of size = 1 from the same distribution.)')
+#showcode = st.checkbox('Show code') #recalculates the entire code when this changes state
 
-if showcode:
-    st.code(f"""
-    # Create the simulation with the provided slider value
-    nsteps = 100; nwalks = val
-    sqdists = np.zeros((nwalks,nsteps))
-    for i in range(nwalks):
-        #set parameters for 2-D random walk
-        x = 0; y = 0; z = 0 #initial x,y, and z coordinates
-        x_loc = [x]; y_loc = [y]; z_loc = [z]
-        for j in range(nsteps):
-            # for each step, the x or y coordinates change by 1 or -1 depending on the random number
-            direction = np.random.choice([-1,0,1])
-            if direction == -1:
-                x += np.random.choice([-1,1])
-            elif direction == 1:
-                y += np.random.choice([-1,1])
-            else:
-                z += np.random.choice([-1,1])
-            sqdists[i,j] = (x**2 + y**2 + z**2) #distance from origin
-            x_loc.append(x); y_loc.append(y); z_loc.append(z)
-    """)
+st.code(f"""
+# Create the simulation with the provided slider value
+nsteps = 100; nwalks = val
+sqdists = np.zeros((nwalks,nsteps))
+for i in range(nwalks):
+    #set parameters for 2-D random walk
+    x = 0; y = 0; z = 0 #initial x,y, and z coordinates
+    x_loc = [x]; y_loc = [y]; z_loc = [z]
+    for j in range(nsteps):
+        # for each step, the x or y coordinates change by 1 or -1 depending on the random number
+        direction = np.random.choice([-1,0,1])
+        if direction == -1:
+            x += np.random.choice([-1,1])
+        elif direction == 1:
+            y += np.random.choice([-1,1])
+        else:
+            z += np.random.choice([-1,1])
+        sqdists[i,j] = (x**2 + y**2 + z**2) #distance from origin
+        x_loc.append(x); y_loc.append(y); z_loc.append(z)
+""")
