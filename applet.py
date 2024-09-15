@@ -30,7 +30,7 @@ for i in range(nwalks):
 
 
 #plot one of the simulation runs (the last one)
-fig, ax = plt.subplots(1,2)
+fig, ax = plt.subplots(1,2,figsize=(5,3))
 ax[0].plot(x_loc,z_loc)
 ax[0].plot(x_loc[0],z_loc[0],'go')
 ax[0].plot(x_loc[-1],z_loc[-1],'ro')
