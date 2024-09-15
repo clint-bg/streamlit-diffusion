@@ -31,25 +31,28 @@ for i in range(nwalks):
 
 
 #plot one of the simulation runs (the last one)
-fig, ax = plt.subplots(2)
-ax[0].plot(x_loc,z_loc)
-ax[0].plot(x_loc[0],z_loc[0],'go')
-ax[0].plot(x_loc[-1],z_loc[-1],'ro')
-ax[0].set_xlabel('x position'); ax[0].set_ylabel('z position')
-ax[0].set_title('3-D Random Walk plotted in 2D')
-ax[0].legend(['Random Walk','Start','End'])
-#plot the squared distance from the origin 
-avesqdists = np.mean(sqdists,axis=0)
-ax[1].plot(avesqdists,label="Average squared distance, nwalks = 100")
-ax[1].legend()
-ax[1].set_xlabel("Number of steps"); ax[1].set_ylabel("Average squared distance from origin")
-st.pyplot(fig)
-
-num_steps = np.linspace(0,len(avesqdists),len(avesqdists))
-dicta = {'Number of steps':num_steps,'Average squared distance': avesqdists}
-df = pd.DataFrame(dicta)
-
-#plot the average squared distance from the origin, averaged over all walks
 fig, ax = plt.subplots()
-sns.lineplot(data=df, x='Number of steps', y='Average squared distance', ax=ax)
+ax.plot(x_loc,z_loc)
+ax.plot(x_loc[0],z_loc[0],'go')
+ax.plot(x_loc[-1],z_loc[-1],'ro')
+ax.set_xlabel('x position'); ax.set_ylabel('z position')
+ax.set_title('3-D Random Walk plotted in 2D')
+ax.legend(['Random Walk','Start','End'])
 st.pyplot(fig)
+
+
+#calculate the average squared distance from the origin
+avg_sqdist = np.mean(sqdists, axis=0)
+df = pd.DataFrame({'Number of steps': range(1,nsteps+1),
+                   'Average squared distance': avg_sqdist})
+
+#plot the average squared distance from the origin
+fig, ax = plt.subplots()
+ax.plot(df['Number of steps'], df['Average squared distance'])
+ax.set_xlabel('Number of steps'); ax.set_ylabel('Average squared distance')
+ax.set_title('Average Squared Distance from Origin')
+st.pyplot(fig)
+ 
+ st.write('The code above is a simple example of a diffusion simulator. The user can select the number of steps \
+ in the simulation using the slider. The code generates a 3D random walk for the selected number of steps and plots \
+    the walk in 2D.')
