@@ -30,13 +30,18 @@ for i in range(nwalks):
 
 
 #plot one of the simulation runs (the last one)
-fig, ax = plt.subplots()
-ax.plot(x_loc,z_loc)
-ax.plot(x_loc[0],z_loc[0],'go')
-ax.plot(x_loc[-1],z_loc[-1],'ro')
-ax.set_xlabel('x position'); ax.set_ylabel('z position')
-ax.set_title('3-D Random Walk plotted in 2D')
-ax.legend(['Random Walk','Start','End'])
+fig, ax = plt.subplots(1,2)
+ax[0].plot(x_loc,z_loc)
+ax[0].plot(x_loc[0],z_loc[0],'go')
+ax[0].plot(x_loc[-1],z_loc[-1],'ro')
+ax[0].set_xlabel('x position'); ax.set_ylabel('z position')
+ax[0].set_title('3-D Random Walk plotted in 2D')
+ax[0].legend(['Random Walk','Start','End'])
+#plot the squared distance from the origin 
+avesqdists = np.mean(sqdists,axis=0)
+ax[1].plot(avesqdists,label="Average squared distance, nwalks = 100")
+ax[1].legend()
+ax[1].set_xlabel("Number of steps"); ax[1].set_ylabel("Average squared distance from origin")
 st.pyplot(fig)
 
 dicta = {'Number of steps''Average squared distance': np.mean(sqdists,axis=0)}
