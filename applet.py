@@ -34,7 +34,7 @@ fig, ax = plt.subplots(1,2)
 ax[0].plot(x_loc,z_loc)
 ax[0].plot(x_loc[0],z_loc[0],'go')
 ax[0].plot(x_loc[-1],z_loc[-1],'ro')
-ax[0].set_xlabel('x position'); ax.set_ylabel('z position')
+ax[0].set_xlabel('x position'); ax[0].set_ylabel('z position')
 ax[0].set_title('3-D Random Walk plotted in 2D')
 ax[0].legend(['Random Walk','Start','End'])
 #plot the squared distance from the origin 
